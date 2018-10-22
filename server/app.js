@@ -39,8 +39,11 @@ console.info('static path:', staticPath);
 app.use(koaStatic(staticPath));
 
 const getServer = (port) => {
-  let server = app.listen(port, 'localhost', ()=>{
-    console.log('Koa server listening on localhost:%d', server.address().port);
+  app.host = process.env.IP || '0.0.0.0';
+  app.port = process.env.PORT || port || 80;
+
+  let server = app.listen(app.port, app.host, ()=>{
+    console.log('Koa server listening on %s:%d', app.host, server.address().port);
   });
   return server;
 };
@@ -48,5 +51,10 @@ const getServer = (port) => {
 if(module.parent){
   module.exports = getServer;
 }else{
-  getServer(8082);
+  getServer(8084);
 }
+//每天8，13，17点执行一次
+var CronJob = require('cron').CronJob;
+new CronJob('0 0 8,13,17 * * *', function() {
+  console.log('You will see this message every second', new Date().toLocaleString());
+}, null, true, 'Asia/Shanghai');

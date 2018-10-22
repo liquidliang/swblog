@@ -3,6 +3,7 @@
   "description": "基于Service worker与单页面应用架构的博客系统",
   "name": "swblog",
   "dependencies": {
+    "cron": "^1.4.1",
     "gulp": "^3.9.1",
     "koa": "^1.2.4",
     "koa-body": "^1.5.0",
@@ -19,11 +20,11 @@
     "babel-preset-es2015": "^6.22.0",
     "css-loader": "^0.26.1",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.0.2",
+    "gulp-clean-css": "^3.10.0",
     "gulp-less": "^3.3.0",
-    "gulp-open": "^2.0.0",
+    "gulp-open": "^2.1.0",
     "gulp-plumber": "^1.1.0",
-    "simple-git": "^1.65.0",
+    "simple-git": "^1.105.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-stream": "^3.2.0"
